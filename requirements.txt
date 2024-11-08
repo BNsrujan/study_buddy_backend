@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pdfplumber
+transformers
+torch
+scikit-learn
+pydantic
