@@ -1,7 +1,11 @@
-fastapi
-uvicorn
-pdfplumber
-transformers
 torch
-scikit-learn
-pydantic
+torchvision
+pdfminer
+fastapi==0.85.1
+uvicorn==0.18.3
+pdfminer.six==20221105
+transformers==4.26.1
+scikit-learn==1.1.3
+nltk==3.8.1
+pydantic==1.10.2
+python-dotenv==0.21.0

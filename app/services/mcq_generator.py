@@ -1,17 +1,8 @@
-from transformers import pipeline
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, pipeline
 
-qa_pipeline = pipeline("question-generation")
+model = AutoModelForSeq2SeqLM.from_pretrained("t5-small")
+tokenizer = AutoTokenizer.from_pretrained("t5-small")
+question_generator = pipeline("question-generation", model=model, tokenizer=tokenizer)
 
-def create_mcqs(text: str) -> list:
-    questions = qa_pipeline(text)
-    mcqs = []
-    for qa in questions:
-        question = qa["question"]
-        answer = qa["answer"]
-        # Create dummy options for demonstration purposes
-        mcqs.append({
-            "question": question,
-            "options": [answer, "Option B", "Option C", "Option D"],
-            "answer": answer
-        })
-    return mcqs
+def generate_mcqs(text: str) -> list:
+    return question_generator(text)
